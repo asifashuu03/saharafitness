@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
 
 const WA_NUMBER = "919743231514";
 const WA_MSG = encodeURIComponent(
-  "Hello Sahara Multi Fitness Team, I visited your website and would like to know more about membership plans and training programs.",
+  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about membership plans and training programs.",
 );
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 const IG_GYM = "https://www.instagram.com/sahara_multi_fitness";
@@ -629,7 +629,7 @@ function About() {
             Where champions <span className="text-gold-gradient">are forged.</span>
           </h2>
           <p className="mt-6 text-muted-foreground">
-            Sahara Multi Fitness is Gangavathi's premier destination for serious training. From
+            Sahara Multi Fitness Unisex is Gangavathi's premier destination for serious training. From
             strength and hypertrophy to fat loss and elite conditioning, every program is engineered
             by Mr. World champion Suleman Mustafa and delivered with world-class equipment,
             science-backed methods and relentless standards.
@@ -667,7 +667,7 @@ function Programs() {
     { icon: Flame, title: "Fat Loss / Weight Gain", desc: "Structured cutting and bulking cycles built around your goals." },
     { icon: Sparkles, title: "Body Transformation", desc: "12- and 24-week programs designed to change the way you look and feel." },
     { icon: Zap, title: "CrossFit", desc: "High-intensity functional training for total-body conditioning." },
-    { icon: Apple, title: "Diet Plans", desc: "Personalised nutrition from a certified nutrition scientist." },
+    { icon: Apple, title: "Science-Based Diet & Workout Plan", desc: "Personalised nutrition & training programming from certified science-based coaching." },
     { icon: Activity, title: "Cardio", desc: "Modern cardio floor with treadmills, cycles and interval programming." },
   ];
   return (
@@ -1267,7 +1267,7 @@ function Footer() {
             <li>Fat Loss / Weight Gain</li>
             <li>Body Transformation</li>
             <li>CrossFit</li>
-            <li>Diet Plans · Cardio</li>
+            <li>Science-Based Diet & Workout · Cardio</li>
           </ul>
         </div>
 
@@ -1276,7 +1276,7 @@ function Footer() {
           <address className="not-italic space-y-2 text-sm text-muted-foreground">
             <p>
               1st Floor, Malleshwara Complex (Samartha Comforts), Opposite Musti Petrol Pump, Above
-              Federal Bank, Koppal Road, Prashant Nagar, Gangavathi, Karnataka – 583227.
+              Federal Bank, Koppal Road, Gangavathi, Karnataka – 583227.
             </p>
             <p>
               <a href="tel:+919743231514" className="hover:text-gold">
@@ -1291,7 +1291,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
-        © 2026 Sahara Multi Fitness. All rights reserved.
+        © 2026 Sahara Multi Fitness Unisex. All rights reserved.
       </div>
     </footer>
   );
