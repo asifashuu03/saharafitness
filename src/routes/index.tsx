@@ -210,17 +210,12 @@ function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-20 sm:px-6 lg:px-8">
-          <a href="#home" className="group flex min-w-0 items-center gap-2.5 shrink-0">
+          <a href="#home" className="group flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black shadow-[0_8px_20px_-6px_oklch(0.82_0.15_85/0.6)]">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="flex min-w-0 flex-col leading-none">
-              <span className="truncate text-[11px] font-black uppercase tracking-[0.2em] text-gold-gradient sm:text-sm sm:tracking-widest">
-                Sahara Multi Fitness
-              </span>
-              <span className="truncate text-[9px] uppercase tracking-[0.3em] text-muted-foreground sm:text-[10px]">
-                Unisex
-              </span>
+            <span className="min-w-0 text-[10px] font-black uppercase leading-tight tracking-[0.15em] text-gold-gradient sm:text-sm sm:tracking-widest">
+              Sahara Multi Fitness Unisex
             </span>
           </a>
 
@@ -345,7 +340,7 @@ function Hero() {
 
   const stats = [
     { icon: Flame, value: "12,000+", label: "KGs Lost Together" },
-    { icon: Users, value: "500+", label: "Members Transformed" },
+    { icon: Users, value: "1000+", label: "Members Transformed" },
     { icon: Trophy, value: "45+", label: "Champions Trained" },
     { icon: Star, value: "98%", label: "Success Rate" },
   ];
@@ -393,7 +388,7 @@ function Hero() {
             transition={{ delay: 0.35 }}
             className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg"
           >
-            Sahara Multi Fitness is more than a gym — it's a commitment to strength, discipline,
+            Sahara Multi Fitness Unisex is more than a gym — it's a commitment to strength, discipline,
             and transformation. Train under champion coaches and unlock your full potential.
           </motion.p>
 
@@ -462,7 +457,7 @@ function Hero() {
       </div>
 
       {/* mobile stats grid */}
-      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 pb-8 sm:hidden">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 pb-12 sm:hidden">
         {stats.map((s, i) => (
           <StatCard key={i} s={s} delay={0.1 * i} inline />
         ))}
@@ -566,8 +561,9 @@ function QuickInfo() {
     },
   ];
   return (
-    <section className="relative -mt-8 px-4 pb-16 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative px-4 pb-16 pt-4 sm:-mt-8 sm:px-6 sm:pt-0 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+
         {cards.map((c, i) => {
           const Icon = c.icon;
           return (
@@ -1071,7 +1067,7 @@ function Gallery() {
 function Social() {
   const cards = [
     {
-      title: "Sahara Multi Fitness",
+      title: "Sahara Multi Fitness Unisex",
       handle: "@sahara_multi_fitness",
       followers: "98.1K+",
       posts: "836+",
@@ -1198,16 +1194,11 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-4">
         <div>
           <a href="#home" className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-gold-gradient text-black">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
-                Sahara Multi Fitness
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Unisex
-              </span>
+            <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
+              Sahara Multi Fitness Unisex
             </span>
           </a>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -1290,8 +1281,18 @@ function Footer() {
           </address>
         </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
-        © 2026 Sahara Multi Fitness Unisex. All rights reserved.
+      <div className="mx-auto mt-10 max-w-7xl space-y-3 border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
+        <p>© 2026 Sahara Multi Fitness Unisex. All rights reserved.</p>
+        <p className="text-[11px] tracking-[0.2em] text-muted-foreground/80">
+          <span className="text-gold/70">✦</span>{" "}
+          <span className="font-medium">
+            © 2026 • Designed &amp; Developed by{" "}
+            <span className="font-semibold text-gold-gradient transition-opacity hover:opacity-80">
+              GVT Web Studio &amp; Digital Solutions
+            </span>
+          </span>{" "}
+          <span className="text-gold/70">✦</span>
+        </p>
       </div>
     </footer>
   );
