@@ -577,7 +577,7 @@ function QuickInfo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="glass-strong group relative overflow-hidden rounded-2xl p-6"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-2xl p-6"
             >
               <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
               <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gold/10 text-gold transition-transform group-hover:scale-110">
@@ -691,7 +691,7 @@ function Programs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="glass-strong group relative overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_30px_60px_-30px_oklch(0.82_0.15_85/0.5)]"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_30px_60px_-30px_oklch(0.82_0.15_85/0.5)]"
             >
               <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gold/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
               <span className="mb-5 inline-grid h-14 w-14 place-items-center rounded-2xl bg-gold/10 text-gold transition-all group-hover:bg-gold group-hover:text-black group-hover:shadow-[0_0_30px_oklch(0.82_0.15_85/0.6)]">
