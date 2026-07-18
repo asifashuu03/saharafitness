@@ -1024,7 +1024,7 @@ function Gallery() {
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-40" />
             <div className="absolute inset-x-0 bottom-0 p-3 text-left">
               <p className="text-xs font-semibold uppercase tracking-widest text-gold">
-                {img.alt}
+                {img.caption}
               </p>
             </div>
           </motion.button>
