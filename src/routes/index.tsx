@@ -25,13 +25,19 @@ import {
 } from "lucide-react";
 
 import heroGym from "@/assets/hero-gym.jpg";
-import coachImg from "@/assets/coach-suleman.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
-import g6 from "@/assets/gallery-6.jpg";
+import coachFrontAsset from "@/assets/bodybuilder-front.jpg.asset.json";
+import coachWideAsset from "@/assets/bodybuilder-wide.jpg.asset.json";
+import thailandAsset from "@/assets/thailand-champion.png.asset.json";
+import trophyWallAsset from "@/assets/trophy-wall.png.asset.json";
+import coachingAsset from "@/assets/coaching-session.jpg.asset.json";
+import gymInteriorAsset from "@/assets/gym-interior.jpg.asset.json";
+
+const coachFront = coachFrontAsset.url;
+const coachWide = coachWideAsset.url;
+const thailandImg = thailandAsset.url;
+const trophyWallImg = trophyWallAsset.url;
+const coachingImg = coachingAsset.url;
+const gymInteriorImg = gymInteriorAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Landing,
