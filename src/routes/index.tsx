@@ -1202,11 +1202,11 @@ function Footer() {
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="text-base font-black uppercase tracking-widest text-gold-gradient">
-                Sahara
+              <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
+                Sahara Multi Fitness
               </span>
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Multi Fitness
+                Unisex
               </span>
             </span>
           </a>
