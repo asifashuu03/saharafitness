@@ -561,8 +561,9 @@ function QuickInfo() {
     },
   ];
   return (
-    <section className="relative -mt-8 px-4 pb-16 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="relative px-4 pb-16 pt-4 sm:-mt-8 sm:px-6 sm:pt-0 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+
         {cards.map((c, i) => {
           const Icon = c.icon;
           return (
