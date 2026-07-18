@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sahara Multi Fitness | Train Like a Champion — Gangavathi" },
+      { title: "Sahara Multi Fitness Unisex | Train Like a Champion — Gangavathi" },
       {
         name: "description",
         content:
-          "Sahara Multi Fitness is Gangavathi's premier luxury gym led by Mr. World champion Suleman Mustafa. Personal training, transformation programs, CrossFit and expert diet plans.",
+          "Sahara Multi Fitness Unisex is Gangavathi's premier luxury gym led by Mr. World champion Suleman Mustafa. Personal training, transformation programs, CrossFit and expert diet plans.",
       },
-      { name: "author", content: "Sahara Multi Fitness" },
-      { property: "og:title", content: "Sahara Multi Fitness — Train Like a Champion" },
+      { name: "author", content: "Sahara Multi Fitness Unisex" },
+      { property: "og:title", content: "Sahara Multi Fitness Unisex — Train Like a Champion" },
       {
         property: "og:description",
         content:
