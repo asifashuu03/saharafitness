@@ -605,7 +605,7 @@ function About() {
           className="relative"
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-3xl gold-border">
-            <img src={g1} alt="Gym interior" className="h-full w-full object-cover" loading="lazy" />
+            <img src={gymInteriorImg} alt="Gym interior" className="h-full w-full object-cover" loading="lazy" />
           </div>
           <div className="glass-strong absolute -bottom-6 -right-2 rounded-2xl p-4 sm:-right-6 sm:p-5">
             <div className="flex items-center gap-3">
