@@ -457,7 +457,7 @@ function Hero() {
       </div>
 
       {/* mobile stats grid */}
-      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 pb-8 sm:hidden">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 pb-12 sm:hidden">
         {stats.map((s, i) => (
           <StatCard key={i} s={s} delay={0.1 * i} inline />
         ))}
