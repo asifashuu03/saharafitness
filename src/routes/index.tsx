@@ -1067,7 +1067,7 @@ function Gallery() {
 function Social() {
   const cards = [
     {
-      title: "Sahara Multi Fitness",
+      title: "Sahara Multi Fitness Unisex",
       handle: "@sahara_multi_fitness",
       followers: "98.1K+",
       posts: "836+",
