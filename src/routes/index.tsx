@@ -210,17 +210,12 @@ function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-20 sm:px-6 lg:px-8">
-          <a href="#home" className="group flex min-w-0 items-center gap-2.5 shrink-0">
+          <a href="#home" className="group flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black shadow-[0_8px_20px_-6px_oklch(0.82_0.15_85/0.6)]">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="flex min-w-0 flex-col leading-none">
-              <span className="truncate text-[11px] font-black uppercase tracking-[0.2em] text-gold-gradient sm:text-sm sm:tracking-widest">
-                Sahara Multi Fitness
-              </span>
-              <span className="truncate text-[9px] uppercase tracking-[0.3em] text-muted-foreground sm:text-[10px]">
-                Unisex
-              </span>
+            <span className="min-w-0 text-[10px] font-black uppercase leading-tight tracking-[0.15em] text-gold-gradient sm:text-sm sm:tracking-widest">
+              Sahara Multi Fitness Unisex
             </span>
           </a>
 
