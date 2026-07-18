@@ -25,13 +25,19 @@ import {
 } from "lucide-react";
 
 import heroGym from "@/assets/hero-gym.jpg";
-import coachImg from "@/assets/coach-suleman.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
-import g6 from "@/assets/gallery-6.jpg";
+import coachFrontAsset from "@/assets/bodybuilder-front.jpg.asset.json";
+import coachWideAsset from "@/assets/bodybuilder-wide.jpg.asset.json";
+import thailandAsset from "@/assets/thailand-champion.png.asset.json";
+import trophyWallAsset from "@/assets/trophy-wall.png.asset.json";
+import coachingAsset from "@/assets/coaching-session.jpg.asset.json";
+import gymInteriorAsset from "@/assets/gym-interior.jpg.asset.json";
+
+const coachFront = coachFrontAsset.url;
+const coachWide = coachWideAsset.url;
+const thailandImg = thailandAsset.url;
+const trophyWallImg = trophyWallAsset.url;
+const coachingImg = coachingAsset.url;
+const gymInteriorImg = gymInteriorAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -39,7 +45,7 @@ export const Route = createFileRoute("/")({
 
 const WA_NUMBER = "919743231514";
 const WA_MSG = encodeURIComponent(
-  "Hello Sahara Multi Fitness Team, I visited your website and would like to know more about membership plans and training programs.",
+  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about membership plans and training programs.",
 );
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 const IG_GYM = "https://www.instagram.com/sahara_multi_fitness";
@@ -208,12 +214,12 @@ function Navbar() {
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black shadow-[0_8px_20px_-6px_oklch(0.82_0.15_85/0.6)]">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="hidden min-w-0 flex-col leading-none xs:flex sm:flex">
-              <span className="truncate text-sm font-black uppercase tracking-widest text-gold-gradient">
-                Sahara
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="truncate text-[11px] font-black uppercase tracking-[0.2em] text-gold-gradient sm:text-sm sm:tracking-widest">
+                Sahara Multi Fitness
               </span>
-              <span className="truncate text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Multi Fitness
+              <span className="truncate text-[9px] uppercase tracking-[0.3em] text-muted-foreground sm:text-[10px]">
+                Unisex
               </span>
             </span>
           </a>
@@ -426,7 +432,7 @@ function Hero() {
           <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl gold-border">
             <div className="absolute inset-0 bg-gold-gradient opacity-20" />
             <img
-              src={coachImg}
+              src={coachFront}
               alt="Coach Suleman Mustafa"
               className="h-full w-full object-cover"
               width={900}
@@ -480,8 +486,8 @@ function StatCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
-      className={`glass-strong pointer-events-auto rounded-2xl p-3 sm:p-4 ${
-        inline ? "" : "animate-float-slow shadow-[0_20px_60px_-20px_oklch(0.82_0.15_85/0.35)]"
+      className={`glass-strong pointer-events-auto flex h-full flex-col justify-center rounded-2xl p-4 ${
+        inline ? "min-h-[104px]" : "animate-float-slow shadow-[0_20px_60px_-20px_oklch(0.82_0.15_85/0.35)]"
       }`}
       style={inline ? {} : { animationDelay: `${delay}s` }}
     >
@@ -489,9 +495,9 @@ function StatCard({
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
           <Icon className="h-4 w-4" />
         </span>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="text-lg font-black leading-none text-gold-gradient sm:text-xl">{s.value}</p>
-          <p className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">
+          <p className="mt-1.5 text-[10px] uppercase leading-tight tracking-wider text-muted-foreground">
             {s.label}
           </p>
         </div>
@@ -510,8 +516,9 @@ function QuickInfo() {
       body: (
         <>
           Opposite Musti Petrol Pump,<br />
-          Above Federal Bank, Koppal Road,<br />
-          Prashant Nagar, Gangavathi.
+          Above Federal Bank,<br />
+          Koppal Road, Gangavathi,<br />
+          Karnataka – 583227.
         </>
       ),
     },
@@ -570,7 +577,7 @@ function QuickInfo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="glass-strong group relative overflow-hidden rounded-2xl p-6"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-2xl p-6"
             >
               <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
               <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gold/10 text-gold transition-transform group-hover:scale-110">
@@ -599,7 +606,7 @@ function About() {
           className="relative"
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-3xl gold-border">
-            <img src={g1} alt="Gym interior" className="h-full w-full object-cover" loading="lazy" />
+            <img src={gymInteriorImg} alt="Gym interior" className="h-full w-full object-cover" loading="lazy" />
           </div>
           <div className="glass-strong absolute -bottom-6 -right-2 rounded-2xl p-4 sm:-right-6 sm:p-5">
             <div className="flex items-center gap-3">
@@ -622,7 +629,7 @@ function About() {
             Where champions <span className="text-gold-gradient">are forged.</span>
           </h2>
           <p className="mt-6 text-muted-foreground">
-            Sahara Multi Fitness is Gangavathi's premier destination for serious training. From
+            Sahara Multi Fitness Unisex is Gangavathi's premier destination for serious training. From
             strength and hypertrophy to fat loss and elite conditioning, every program is engineered
             by Mr. World champion Suleman Mustafa and delivered with world-class equipment,
             science-backed methods and relentless standards.
@@ -660,7 +667,7 @@ function Programs() {
     { icon: Flame, title: "Fat Loss / Weight Gain", desc: "Structured cutting and bulking cycles built around your goals." },
     { icon: Sparkles, title: "Body Transformation", desc: "12- and 24-week programs designed to change the way you look and feel." },
     { icon: Zap, title: "CrossFit", desc: "High-intensity functional training for total-body conditioning." },
-    { icon: Apple, title: "Diet Plans", desc: "Personalised nutrition from a certified nutrition scientist." },
+    { icon: Apple, title: "Science-Based Diet & Workout Plan", desc: "Personalised nutrition & training programming from certified science-based coaching." },
     { icon: Activity, title: "Cardio", desc: "Modern cardio floor with treadmills, cycles and interval programming." },
   ];
   return (
@@ -684,7 +691,7 @@ function Programs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="glass-strong group relative overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_30px_60px_-30px_oklch(0.82_0.15_85/0.5)]"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_30px_60px_-30px_oklch(0.82_0.15_85/0.5)]"
             >
               <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gold/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
               <span className="mb-5 inline-grid h-14 w-14 place-items-center rounded-2xl bg-gold/10 text-gold transition-all group-hover:bg-gold group-hover:text-black group-hover:shadow-[0_0_30px_oklch(0.82_0.15_85/0.6)]">
@@ -860,7 +867,7 @@ function Achievements() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="relative aspect-[3/4] overflow-hidden rounded-3xl gold-border">
-            <img src={coachImg} alt="Suleman Mustafa" className="h-full w-full object-cover" loading="lazy" />
+            <img src={coachWide} alt="Suleman Mustafa fitness expert" className="h-full w-full object-cover" loading="lazy" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5">
               <p className="text-xs uppercase tracking-[0.3em] text-gold">Fitness Expert</p>
               <p className="text-xl font-black uppercase">Suleman Mustafa</p>
@@ -975,12 +982,12 @@ function Certifications() {
 
 function Gallery() {
   const imgs = [
-    { src: g1, alt: "Premium cardio floor" },
-    { src: g2, alt: "Championship trophy" },
-    { src: g3, alt: "Barbell training" },
-    { src: g4, alt: "Dumbbell rack" },
-    { src: g5, alt: "Personal training session" },
-    { src: g6, alt: "Competition poster" },
+    { src: thailandImg, alt: "Champion in Thailand", caption: "Champion in Thailand 🇮🇳🏆" },
+    { src: trophyWallImg, alt: "Trophy & medal wall", caption: "Trophy Wall — National Titles" },
+    { src: coachFront, alt: "Champion physique", caption: "Championship Physique" },
+    { src: coachWide, alt: "Stage-ready pose", caption: "Stage-Ready Conditioning" },
+    { src: coachingImg, alt: "Personal coaching session", caption: "Personal Training Floor" },
+    { src: gymInteriorImg, alt: "Sahara gym interior", caption: "Inside Sahara" },
   ];
   const [active, setActive] = useState<number | null>(null);
   return (
@@ -1018,7 +1025,7 @@ function Gallery() {
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-40" />
             <div className="absolute inset-x-0 bottom-0 p-3 text-left">
               <p className="text-xs font-semibold uppercase tracking-widest text-gold">
-                {img.alt}
+                {img.caption}
               </p>
             </div>
           </motion.button>
@@ -1195,11 +1202,11 @@ function Footer() {
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="text-base font-black uppercase tracking-widest text-gold-gradient">
-                Sahara
+              <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
+                Sahara Multi Fitness
               </span>
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Multi Fitness
+                Unisex
               </span>
             </span>
           </a>
@@ -1260,7 +1267,7 @@ function Footer() {
             <li>Fat Loss / Weight Gain</li>
             <li>Body Transformation</li>
             <li>CrossFit</li>
-            <li>Diet Plans · Cardio</li>
+            <li>Science-Based Diet & Workout · Cardio</li>
           </ul>
         </div>
 
@@ -1269,7 +1276,7 @@ function Footer() {
           <address className="not-italic space-y-2 text-sm text-muted-foreground">
             <p>
               1st Floor, Malleshwara Complex (Samartha Comforts), Opposite Musti Petrol Pump, Above
-              Federal Bank, Koppal Road, Prashant Nagar, Gangavathi, Karnataka – 583227.
+              Federal Bank, Koppal Road, Gangavathi, Karnataka – 583227.
             </p>
             <p>
               <a href="tel:+919743231514" className="hover:text-gold">
@@ -1284,7 +1291,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
-        © 2026 Sahara Multi Fitness. All rights reserved.
+        © 2026 Sahara Multi Fitness Unisex. All rights reserved.
       </div>
     </footer>
   );
