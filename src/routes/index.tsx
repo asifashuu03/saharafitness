@@ -340,7 +340,7 @@ function Hero() {
 
   const stats = [
     { icon: Flame, value: "12,000+", label: "KGs Lost Together" },
-    { icon: Users, value: "500+", label: "Members Transformed" },
+    { icon: Users, value: "1000+", label: "Members Transformed" },
     { icon: Trophy, value: "45+", label: "Champions Trained" },
     { icon: Star, value: "98%", label: "Success Rate" },
   ];
