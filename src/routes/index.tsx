@@ -214,12 +214,12 @@ function Navbar() {
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black shadow-[0_8px_20px_-6px_oklch(0.82_0.15_85/0.6)]">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="hidden min-w-0 flex-col leading-none xs:flex sm:flex">
-              <span className="truncate text-sm font-black uppercase tracking-widest text-gold-gradient">
-                Sahara
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="truncate text-[11px] font-black uppercase tracking-[0.2em] text-gold-gradient sm:text-sm sm:tracking-widest">
+                Sahara Multi Fitness
               </span>
-              <span className="truncate text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Multi Fitness
+              <span className="truncate text-[9px] uppercase tracking-[0.3em] text-muted-foreground sm:text-[10px]">
+                Unisex
               </span>
             </span>
           </a>
