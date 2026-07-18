@@ -388,7 +388,7 @@ function Hero() {
             transition={{ delay: 0.35 }}
             className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg"
           >
-            Sahara Multi Fitness is more than a gym — it's a commitment to strength, discipline,
+            Sahara Multi Fitness Unisex is more than a gym — it's a commitment to strength, discipline,
             and transformation. Train under champion coaches and unlock your full potential.
           </motion.p>
 
