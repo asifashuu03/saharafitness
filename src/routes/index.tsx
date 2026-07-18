@@ -866,7 +866,7 @@ function Achievements() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="relative aspect-[3/4] overflow-hidden rounded-3xl gold-border">
-            <img src={coachFront} alt="Suleman Mustafa" className="h-full w-full object-cover" loading="lazy" />
+            <img src={coachWide} alt="Suleman Mustafa fitness expert" className="h-full w-full object-cover" loading="lazy" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5">
               <p className="text-xs uppercase tracking-[0.3em] text-gold">Fitness Expert</p>
               <p className="text-xl font-black uppercase">Suleman Mustafa</p>
