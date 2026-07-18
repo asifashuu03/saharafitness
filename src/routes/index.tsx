@@ -516,8 +516,9 @@ function QuickInfo() {
       body: (
         <>
           Opposite Musti Petrol Pump,<br />
-          Above Federal Bank, Koppal Road,<br />
-          Prashant Nagar, Gangavathi.
+          Above Federal Bank,<br />
+          Koppal Road, Gangavathi,<br />
+          Karnataka – 583227.
         </>
       ),
     },
