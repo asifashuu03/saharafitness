@@ -981,12 +981,12 @@ function Certifications() {
 
 function Gallery() {
   const imgs = [
-    { src: g1, alt: "Premium cardio floor" },
-    { src: g2, alt: "Championship trophy" },
-    { src: g3, alt: "Barbell training" },
-    { src: g4, alt: "Dumbbell rack" },
-    { src: g5, alt: "Personal training session" },
-    { src: g6, alt: "Competition poster" },
+    { src: thailandImg, alt: "Champion in Thailand", caption: "Champion in Thailand 🇮🇳🏆" },
+    { src: trophyWallImg, alt: "Trophy & medal wall", caption: "Trophy Wall — National Titles" },
+    { src: coachFront, alt: "Champion physique", caption: "Championship Physique" },
+    { src: coachWide, alt: "Stage-ready pose", caption: "Stage-Ready Conditioning" },
+    { src: coachingImg, alt: "Personal coaching session", caption: "Personal Training Floor" },
+    { src: gymInteriorImg, alt: "Sahara gym interior", caption: "Inside Sahara" },
   ];
   const [active, setActive] = useState<number | null>(null);
   return (
