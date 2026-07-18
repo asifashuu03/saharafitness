@@ -486,8 +486,8 @@ function StatCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
-      className={`glass-strong pointer-events-auto rounded-2xl p-3 sm:p-4 ${
-        inline ? "" : "animate-float-slow shadow-[0_20px_60px_-20px_oklch(0.82_0.15_85/0.35)]"
+      className={`glass-strong pointer-events-auto flex h-full flex-col justify-center rounded-2xl p-4 ${
+        inline ? "min-h-[104px]" : "animate-float-slow shadow-[0_20px_60px_-20px_oklch(0.82_0.15_85/0.35)]"
       }`}
       style={inline ? {} : { animationDelay: `${delay}s` }}
     >
@@ -495,9 +495,9 @@ function StatCard({
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
           <Icon className="h-4 w-4" />
         </span>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="text-lg font-black leading-none text-gold-gradient sm:text-xl">{s.value}</p>
-          <p className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">
+          <p className="mt-1.5 text-[10px] uppercase leading-tight tracking-wider text-muted-foreground">
             {s.label}
           </p>
         </div>
