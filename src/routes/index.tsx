@@ -1194,16 +1194,11 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-4">
         <div>
           <a href="#home" className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-gold-gradient text-black">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gold-gradient text-black">
               <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
             </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
-                Sahara Multi Fitness
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Unisex
-              </span>
+            <span className="text-sm font-black uppercase tracking-widest text-gold-gradient sm:text-base">
+              Sahara Multi Fitness Unisex
             </span>
           </a>
           <p className="mt-4 text-sm text-muted-foreground">
