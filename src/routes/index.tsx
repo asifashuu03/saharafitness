@@ -1281,8 +1281,18 @@ function Footer() {
           </address>
         </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
-        © 2026 Sahara Multi Fitness Unisex. All rights reserved.
+      <div className="mx-auto mt-10 max-w-7xl space-y-3 border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
+        <p>© 2026 Sahara Multi Fitness Unisex. All rights reserved.</p>
+        <p className="text-[11px] tracking-[0.2em] text-muted-foreground/80">
+          <span className="text-gold/70">✦</span>{" "}
+          <span className="font-medium">
+            © 2026 • Designed &amp; Developed by{" "}
+            <span className="font-semibold text-gold-gradient transition-opacity hover:opacity-80">
+              GVT Web Studio &amp; Digital Solutions
+            </span>
+          </span>{" "}
+          <span className="text-gold/70">✦</span>
+        </p>
       </div>
     </footer>
   );
