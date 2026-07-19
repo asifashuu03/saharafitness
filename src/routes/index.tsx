@@ -746,7 +746,8 @@ const plansCardio: Plan[] = [
   { name: "12 Months", admission: "Free", monthly: "₹1,250", package: "₹15,000", offer: "2 Diet Charts + 1 Month Gym Free" },
 ];
 
-function PlanCard({ plan }: { plan: Plan }) {
+function PlanCard({ plan, withCardio }: { plan: Plan; withCardio: boolean }) {
+  const href = buildPlanWA(plan, withCardio);
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -776,16 +777,16 @@ function PlanCard({ plan }: { plan: Plan }) {
         <Row label="Offer" value={plan.offer} multiline />
       </div>
       <a
-        href={WA_URL}
+        href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold uppercase tracking-widest transition-all ${
           plan.highlight
             ? "bg-gold-gradient text-black hover:-translate-y-0.5"
             : "border border-gold/40 text-gold hover:bg-gold/10"
         }`}
       >
-        Enrol via WhatsApp <ChevronRight className="h-3.5 w-3.5" />
+        Enroll via WhatsApp <ChevronRight className="h-3.5 w-3.5" />
       </a>
     </motion.div>
   );
