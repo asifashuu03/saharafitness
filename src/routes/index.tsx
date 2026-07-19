@@ -44,12 +44,30 @@ export const Route = createFileRoute("/")({
 });
 
 const WA_NUMBER = "919743231514";
-const WA_MSG = encodeURIComponent(
-  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about membership plans and training programs.",
-);
-const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+const buildWA = (msg: string) =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+const WA_DEFAULT_MSG =
+  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about memberships and training programs.";
+const WA_URL = buildWA(WA_DEFAULT_MSG);
 const IG_GYM = "https://www.instagram.com/sahara_multi_fitness";
-const IG_COACH = "https://www.instagram.com/sulemansalman";
+const IG_COACH =
+  "https://www.instagram.com/sulemansalman55?igsh=cmg4YmdqbXRkejdn";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Sahara+Multi+Fitness+Unisex+Koppal+Road+Gangavathi";
+
+function buildPlanWA(plan: Plan, withCardio: boolean) {
+  const label = withCardio ? "WITH CARDIO" : "WITHOUT CARDIO";
+  const msg = `Hello Sahara Multi Fitness Unisex Team, I am interested in the ${label} – ${plan.name} Membership Package.
+
+Plan Details:
+• Total Price: ${plan.package}
+• Admission: ${plan.admission}
+• Monthly Fee: ${plan.monthly}/month
+• Offer: ${plan.offer}
+
+Please provide more details.`;
+  return buildWA(msg);
+}
 
 const NAV = [
   { label: "Home", href: "#home" },
