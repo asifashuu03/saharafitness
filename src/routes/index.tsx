@@ -810,7 +810,7 @@ function Membership() {
         eyebrow="Membership"
         title={
           <>
-            Gents <span className="text-gold-gradient">Membership Packages</span>
+            Our <span className="text-gold-gradient">Membership Packages</span>
           </>
         }
         subtitle="Two tracks. Four durations. One goal — championship-level transformation."
