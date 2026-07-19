@@ -1225,28 +1225,26 @@ function Footer() {
           </p>
           <div className="mt-5 flex gap-2">
             <a
-              href={IG_GYM}
-              target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
-              aria-label="Gym Instagram"
+              href="#achievements"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
+              aria-label="Championships & Achievements"
             >
-              <Instagram className="h-4.5 w-4.5" />
+              <Trophy className="h-4.5 w-4.5" />
             </a>
             <a
-              href={IG_COACH}
+              href={MAPS_URL}
               target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
-              aria-label="Coach Instagram"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
+              aria-label="Find us on Google Maps"
             >
-              <Instagram className="h-4.5 w-4.5" />
+              <MapPin className="h-4.5 w-4.5" />
             </a>
             <a
               href={WA_URL}
               target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
               aria-label="WhatsApp"
             >
               <MessageCircle className="h-4.5 w-4.5" />
