@@ -839,7 +839,7 @@ function Membership() {
 
       <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {plans.map((p) => (
-          <PlanCard key={`${tab}-${p.name}`} plan={p} />
+          <PlanCard key={`${tab}-${p.name}`} plan={p} withCardio={tab === "yes"} />
         ))}
       </div>
 
