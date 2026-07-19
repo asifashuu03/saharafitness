@@ -44,12 +44,30 @@ export const Route = createFileRoute("/")({
 });
 
 const WA_NUMBER = "919743231514";
-const WA_MSG = encodeURIComponent(
-  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about membership plans and training programs.",
-);
-const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+const buildWA = (msg: string) =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+const WA_DEFAULT_MSG =
+  "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about memberships and training programs.";
+const WA_URL = buildWA(WA_DEFAULT_MSG);
 const IG_GYM = "https://www.instagram.com/sahara_multi_fitness";
-const IG_COACH = "https://www.instagram.com/sulemansalman";
+const IG_COACH =
+  "https://www.instagram.com/sulemansalman55?igsh=cmg4YmdqbXRkejdn";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Sahara+Multi+Fitness+Unisex+Koppal+Road+Gangavathi";
+
+function buildPlanWA(plan: Plan, withCardio: boolean) {
+  const label = withCardio ? "WITH CARDIO" : "WITHOUT CARDIO";
+  const msg = `Hello Sahara Multi Fitness Unisex Team, I am interested in the ${label} – ${plan.name} Membership Package.
+
+Plan Details:
+• Total Price: ${plan.package}
+• Admission: ${plan.admission}
+• Monthly Fee: ${plan.monthly}/month
+• Offer: ${plan.offer}
+
+Please provide more details.`;
+  return buildWA(msg);
+}
 
 const NAV = [
   { label: "Home", href: "#home" },
@@ -728,7 +746,8 @@ const plansCardio: Plan[] = [
   { name: "12 Months", admission: "Free", monthly: "₹1,250", package: "₹15,000", offer: "2 Diet Charts + 1 Month Gym Free" },
 ];
 
-function PlanCard({ plan }: { plan: Plan }) {
+function PlanCard({ plan, withCardio }: { plan: Plan; withCardio: boolean }) {
+  const href = buildPlanWA(plan, withCardio);
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -758,16 +777,16 @@ function PlanCard({ plan }: { plan: Plan }) {
         <Row label="Offer" value={plan.offer} multiline />
       </div>
       <a
-        href={WA_URL}
+        href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold uppercase tracking-widest transition-all ${
           plan.highlight
             ? "bg-gold-gradient text-black hover:-translate-y-0.5"
             : "border border-gold/40 text-gold hover:bg-gold/10"
         }`}
       >
-        Enrol via WhatsApp <ChevronRight className="h-3.5 w-3.5" />
+        Enroll via WhatsApp <ChevronRight className="h-3.5 w-3.5" />
       </a>
     </motion.div>
   );
@@ -791,7 +810,7 @@ function Membership() {
         eyebrow="Membership"
         title={
           <>
-            Gents <span className="text-gold-gradient">Membership Packages</span>
+            Our <span className="text-gold-gradient">Membership Packages</span>
           </>
         }
         subtitle="Two tracks. Four durations. One goal — championship-level transformation."
@@ -820,7 +839,7 @@ function Membership() {
 
       <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {plans.map((p) => (
-          <PlanCard key={`${tab}-${p.name}`} plan={p} />
+          <PlanCard key={`${tab}-${p.name}`} plan={p} withCardio={tab === "yes"} />
         ))}
       </div>
 
@@ -1206,28 +1225,26 @@ function Footer() {
           </p>
           <div className="mt-5 flex gap-2">
             <a
-              href={IG_GYM}
-              target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
-              aria-label="Gym Instagram"
+              href="#achievements"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
+              aria-label="Championships & Achievements"
             >
-              <Instagram className="h-4.5 w-4.5" />
+              <Trophy className="h-4.5 w-4.5" />
             </a>
             <a
-              href={IG_COACH}
+              href={MAPS_URL}
               target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
-              aria-label="Coach Instagram"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
+              aria-label="Find us on Google Maps"
             >
-              <Instagram className="h-4.5 w-4.5" />
+              <MapPin className="h-4.5 w-4.5" />
             </a>
             <a
               href={WA_URL}
               target="_blank"
-              rel="noreferrer"
-              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
               aria-label="WhatsApp"
             >
               <MessageCircle className="h-4.5 w-4.5" />
@@ -1281,12 +1298,11 @@ function Footer() {
           </address>
         </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl space-y-3 border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
-        <p>© 2026 Sahara Multi Fitness Unisex. All rights reserved.</p>
-        <p className="text-[11px] tracking-[0.2em] text-muted-foreground/80">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center">
+        <p className="text-[11px] tracking-[0.2em] text-muted-foreground/80 sm:text-xs">
           <span className="text-gold/70">✦</span>{" "}
           <span className="font-medium">
-            © 2026 • Designed &amp; Developed by{" "}
+            © 2026 • Developed by{" "}
             <span className="font-semibold text-gold-gradient transition-opacity hover:opacity-80">
               GVT Web Studio &amp; Digital Solutions
             </span>
