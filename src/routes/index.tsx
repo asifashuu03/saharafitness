@@ -85,7 +85,7 @@ const NAV = [
 /* ---------- shared bits ---------- */
 
 function Particles() {
-  const [mounted, setMounted] = useState(false);
+  const round = (value: number) => Number(value.toFixed(4));
   const seeded = (index: number, salt: number) => {
     const value = Math.sin(index * 997 + salt * 131) * 10000;
     return value - Math.floor(value);
@@ -93,19 +93,13 @@ function Particles() {
   const dots = useMemo(
     () =>
       Array.from({ length: 28 }).map((_, index) => ({
-        left: seeded(index + 1, 1) * 100,
-        delay: seeded(index + 1, 2) * 12,
-        duration: 12 + seeded(index + 1, 3) * 14,
-        size: 1 + seeded(index + 1, 4) * 2.5,
+        left: round(seeded(index + 1, 1) * 100),
+        delay: round(seeded(index + 1, 2) * 12),
+        duration: round(12 + seeded(index + 1, 3) * 14),
+        size: round(1 + seeded(index + 1, 4) * 2.5),
       })),
     [],
   );
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden" />;
-  }
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {dots.map((d, i) => (
@@ -114,9 +108,13 @@ function Particles() {
           className="absolute bottom-0 rounded-full bg-gold/70 blur-[1px]"
           style={{
             left: `${d.left}%`,
-            width: d.size,
-            height: d.size,
-            animation: `particle-drift ${d.duration}s linear ${d.delay}s infinite`,
+            width: `${d.size}px`,
+            height: `${d.size}px`,
+            animationName: "particle-drift",
+            animationDuration: `${d.duration}s`,
+            animationTimingFunction: "linear",
+            animationDelay: `${d.delay}s`,
+            animationIterationCount: "infinite",
           }}
         />
       ))}
