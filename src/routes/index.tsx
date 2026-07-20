@@ -85,6 +85,7 @@ const NAV = [
 /* ---------- shared bits ---------- */
 
 function Particles() {
+  const [mounted, setMounted] = useState(false);
   const seeded = (index: number, salt: number) => {
     const value = Math.sin(index * 997 + salt * 131) * 10000;
     return value - Math.floor(value);
@@ -99,6 +100,12 @@ function Particles() {
       })),
     [],
   );
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden" />;
+  }
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {dots.map((d, i) => (
