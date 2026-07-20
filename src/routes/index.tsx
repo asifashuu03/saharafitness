@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
 
 const WA_NUMBER = "919743231514";
 const buildWA = (msg: string) =>
-  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`;
 const WA_DEFAULT_MSG =
   "Hello Sahara Multi Fitness Unisex Team, I visited your website and would like to know more about memberships and training programs.";
 const WA_URL = buildWA(WA_DEFAULT_MSG);
@@ -60,9 +60,11 @@ function buildPlanWA(plan: Plan, withCardio: boolean) {
   const msg = `Hello Sahara Multi Fitness Unisex Team, I am interested in the ${label} – ${plan.name} Membership Package.
 
 Plan Details:
-• Total Price: ${plan.package}
-• Admission: ${plan.admission}
+• Package Name: ${label} Membership
+• Duration: ${plan.name}
+• Admission Fee: ${plan.admission}
 • Monthly Fee: ${plan.monthly}/month
+• Total Price: ${plan.package}
 • Offer: ${plan.offer}
 
 Please provide more details.`;
@@ -83,13 +85,18 @@ const NAV = [
 /* ---------- shared bits ---------- */
 
 function Particles() {
+  const round = (value: number) => Number(value.toFixed(4));
+  const seeded = (index: number, salt: number) => {
+    const value = Math.sin(index * 997 + salt * 131) * 10000;
+    return value - Math.floor(value);
+  };
   const dots = useMemo(
     () =>
-      Array.from({ length: 28 }).map(() => ({
-        left: Math.random() * 100,
-        delay: Math.random() * 12,
-        duration: 12 + Math.random() * 14,
-        size: 1 + Math.random() * 2.5,
+      Array.from({ length: 28 }).map((_, index) => ({
+        left: round(seeded(index + 1, 1) * 100),
+        delay: round(seeded(index + 1, 2) * 12),
+        duration: round(12 + seeded(index + 1, 3) * 14),
+        size: round(1 + seeded(index + 1, 4) * 2.5),
       })),
     [],
   );
@@ -101,9 +108,13 @@ function Particles() {
           className="absolute bottom-0 rounded-full bg-gold/70 blur-[1px]"
           style={{
             left: `${d.left}%`,
-            width: d.size,
-            height: d.size,
-            animation: `particle-drift ${d.duration}s linear ${d.delay}s infinite`,
+            width: `${d.size}px`,
+            height: `${d.size}px`,
+            animationName: "particle-drift",
+            animationDuration: `${d.duration}s`,
+            animationTimingFunction: "linear",
+            animationDelay: `${d.delay}s`,
+            animationIterationCount: "infinite",
           }}
         />
       ))}
@@ -174,7 +185,7 @@ function GoldButton({
   rel?: string;
 }) {
   const base =
-    "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 sm:px-7 sm:py-3.5";
+    "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:px-7 sm:py-3.5";
   const solid =
     "bg-gold-gradient text-black shadow-[0_10px_30px_-10px_oklch(0.82_0.15_85/0.7)] hover:shadow-[0_18px_50px_-10px_oklch(0.82_0.15_85/0.9)] hover:-translate-y-0.5";
   const outline =
@@ -190,7 +201,7 @@ function GoldButton({
   );
   if (href) {
     return (
-      <a href={href} target={target} rel={rel} className={cls}>
+      <a href={href} target={target} rel={target === "_blank" ? (rel ?? "noopener noreferrer") : rel} className={cls}>
         {inner}
       </a>
     );
@@ -253,7 +264,7 @@ function Navbar() {
             <a
               href={IG_GYM}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="hidden h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black sm:grid"
             >
@@ -261,9 +272,7 @@ function Navbar() {
             </a>
             <a
               href={WA_URL}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="WhatsApp"
+              aria-label="Chat with Sahara Multi Fitness Unisex on WhatsApp"
               className="hidden h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all hover:bg-gold hover:text-black sm:grid"
             >
               <MessageCircle className="h-4.5 w-4.5" />
@@ -277,6 +286,8 @@ function Navbar() {
             <button
               type="button"
               aria-label="Menu"
+              aria-controls="mobile-navigation"
+              aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
               className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold xl:hidden"
             >
@@ -294,6 +305,7 @@ function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 xl:hidden"
+            id="mobile-navigation"
           >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-2xl" />
             <div className="relative flex h-full flex-col items-center justify-center gap-1 px-6">
@@ -319,15 +331,15 @@ function Navbar() {
                 <a
                   href={IG_GYM}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label="Open Sahara Multi Fitness Unisex Instagram"
                   className="grid h-12 w-12 place-items-center rounded-full border border-gold/30 text-gold"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
                   href={WA_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  aria-label="Chat with Sahara Multi Fitness Unisex on WhatsApp"
                   className="grid h-12 w-12 place-items-center rounded-full border border-gold/30 text-gold"
                 >
                   <MessageCircle className="h-5 w-5" />
@@ -422,7 +434,7 @@ function Hero() {
             <GoldButton
               href={IG_GYM}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               variant="outline"
             >
               <Play className="h-4 w-4" /> Watch Story
@@ -568,8 +580,7 @@ function QuickInfo() {
           <p className="mb-3 text-xs text-muted-foreground">Message the team directly.</p>
           <a
             href={WA_URL}
-            target="_blank"
-            rel="noreferrer"
+            aria-label="Chat with Sahara Multi Fitness Unisex on WhatsApp"
             className="inline-flex items-center gap-1.5 rounded-full bg-gold-gradient px-4 py-2 text-xs font-bold uppercase tracking-widest text-black"
           >
             Chat Now <ChevronRight className="h-3 w-3" />
@@ -778,8 +789,7 @@ function PlanCard({ plan, withCardio }: { plan: Plan; withCardio: boolean }) {
       </div>
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        aria-label={`Enroll via WhatsApp for the ${withCardio ? "with cardio" : "without cardio"} ${plan.name} membership package`}
         className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold uppercase tracking-widest transition-all ${
           plan.highlight
             ? "bg-gold-gradient text-black hover:-translate-y-0.5"
@@ -825,8 +835,10 @@ function Membership() {
             ] as const
           ).map(([key, label]) => (
             <button
+              type="button"
               key={key}
               onClick={() => setTab(key)}
+              aria-pressed={tab === key}
               className={`rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all sm:px-7 ${
                 tab === key ? "bg-gold-gradient text-black shadow-[0_8px_20px_-8px_oklch(0.82_0.15_85/0.8)]" : "text-muted-foreground hover:text-gold"
               }`}
@@ -1022,6 +1034,7 @@ function Gallery() {
             key={i}
             type="button"
             onClick={() => setActive(i)}
+            aria-label={`Open gallery image: ${img.caption}`}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -1126,7 +1139,8 @@ function Social() {
             key={c.title}
             href={c.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label={`Open ${c.title} on Instagram`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1194,7 +1208,7 @@ function Contact() {
             goals.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <GoldButton href={WA_URL} target="_blank" rel="noreferrer">
+            <GoldButton href={WA_URL}>
               <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </GoldButton>
             <GoldButton href="tel:+919743231514" variant="outline">
@@ -1242,10 +1256,8 @@ function Footer() {
             </a>
             <a
               href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="grid h-10 w-10 place-items-center rounded-full border border-gold/25 text-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-gold hover:text-black hover:shadow-[0_10px_25px_-10px_oklch(0.82_0.15_85/0.9)]"
-              aria-label="WhatsApp"
+              aria-label="Chat with Sahara Multi Fitness Unisex on WhatsApp"
             >
               <MessageCircle className="h-4.5 w-4.5" />
             </a>
@@ -1299,7 +1311,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-gold/10 pt-6 text-center">
-        <p className="text-[11px] tracking-[0.2em] text-muted-foreground/80 sm:text-xs">
+        <p className="text-[11px] leading-relaxed tracking-[0.08em] text-muted-foreground/80 sm:text-xs sm:tracking-[0.2em]">
           <span className="text-gold/70">✦</span>{" "}
           <span className="font-medium">
             © 2026 • Developed by{" "}
@@ -1318,8 +1330,6 @@ function FloatingWA() {
   return (
     <a
       href={WA_URL}
-      target="_blank"
-      rel="noreferrer"
       aria-label="WhatsApp Chat"
       className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_40px_-10px_rgba(37,211,102,0.8)] transition-transform hover:scale-110 animate-pulse-gold sm:h-16 sm:w-16"
     >
