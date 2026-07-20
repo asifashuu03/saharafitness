@@ -85,13 +85,17 @@ const NAV = [
 /* ---------- shared bits ---------- */
 
 function Particles() {
+  const seeded = (index: number, salt: number) => {
+    const value = Math.sin(index * 997 + salt * 131) * 10000;
+    return value - Math.floor(value);
+  };
   const dots = useMemo(
     () =>
-      Array.from({ length: 28 }).map(() => ({
-        left: Math.random() * 100,
-        delay: Math.random() * 12,
-        duration: 12 + Math.random() * 14,
-        size: 1 + Math.random() * 2.5,
+      Array.from({ length: 28 }).map((_, index) => ({
+        left: seeded(index + 1, 1) * 100,
+        delay: seeded(index + 1, 2) * 12,
+        duration: 12 + seeded(index + 1, 3) * 14,
+        size: 1 + seeded(index + 1, 4) * 2.5,
       })),
     [],
   );
@@ -1130,7 +1134,7 @@ function Social() {
             key={c.title}
             href={c.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={`Open ${c.title} on Instagram`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
