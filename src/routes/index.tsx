@@ -947,7 +947,7 @@ function Certifications() {
   return (
     <section id="certifications" className="relative px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <SectionTitle
-        eyebrow="Credentials"
+        eyebrow="Certified Excellence"
         title={
           <>
             Professional <span className="text-gold-gradient">Certifications</span>
