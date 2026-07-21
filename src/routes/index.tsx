@@ -965,7 +965,7 @@ function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass-strong group relative overflow-hidden rounded-3xl p-8 transition-all hover:-translate-y-1 hover:border-gold/50"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 transition-all hover:-translate-y-1 hover:border-gold/50"
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
               <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-gold/10 blur-3xl transition-opacity group-hover:opacity-100" />
@@ -976,15 +976,13 @@ function Certifications() {
                 <Award className="h-8 w-8 text-gold/50" />
               </div>
               <h3 className="mt-6 text-2xl font-black uppercase leading-tight">{c.title}</h3>
-              <div className="mt-6 space-y-2 border-t border-gold/10 pt-4 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Started</span>
-                  <span className="font-semibold">{c.started}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Completed</span>
-                  <span className="font-semibold text-gold">{c.completed}</span>
-                </div>
+              <div className="mt-6 flex flex-1 flex-col items-center justify-center gap-1 border-t border-gold/10 pt-6 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-gold">
+                  Certified
+                </span>
+                <span className="text-lg font-black uppercase tracking-wide text-foreground">
+                  {c.period}
+                </span>
               </div>
             </motion.div>
           );
