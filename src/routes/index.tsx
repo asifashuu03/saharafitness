@@ -774,7 +774,7 @@ function PlanCard({ plan, withCardio }: { plan: Plan; withCardio: boolean }) {
           /total
         </span>
       </p>
-      <div className="mt-5 space-y-2.5 text-sm">
+      <div className="mt-5 flex-1 space-y-2.5 text-sm">
         <Row label="Admission" value={plan.admission} />
         <Row label="Monthly" value={`${plan.monthly}/mo`} />
         <Row label="Offer" value={plan.offer} multiline />
