@@ -1087,8 +1087,8 @@ function Social() {
     {
       title: "Sahara Multi Fitness Unisex",
       handle: "@sahara_multi_fitness",
-      followers: "98.1K+",
-      posts: "836+",
+      followers: "100K+",
+      posts: "800+",
       href: IG_GYM,
       btn: "Follow Gym",
       badges: null as string[] | null,
