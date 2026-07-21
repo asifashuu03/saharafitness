@@ -1096,8 +1096,8 @@ function Social() {
     {
       title: "Suleman Mustafa",
       handle: "@sulemansalman",
-      followers: "39.7K+",
-      posts: "828+",
+      followers: "40K+",
+      posts: "800+",
       href: IG_COACH,
       btn: "Follow Coach",
       badges: [
