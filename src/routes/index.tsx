@@ -553,9 +553,12 @@ function QuickInfo() {
       icon: Clock,
       title: "Opening Hours",
       body: (
-        <div className="space-y-1 text-xs">
-          <p><span className="text-gold">Mon – Fri:</span> 5–9 AM · 5–9:30 PM</p>
-          <p><span className="text-gold">Saturday:</span> 5 AM – 9 AM</p>
+        <div className="space-y-2 text-xs">
+          <div>
+            <p className="text-gold">Mon – Sat</p>
+            <p>5:00 AM – 9:00 AM</p>
+            <p>5:00 PM – 10:00 PM</p>
+          </div>
           <p><span className="text-gold">Sunday:</span> Closed</p>
         </div>
       ),
