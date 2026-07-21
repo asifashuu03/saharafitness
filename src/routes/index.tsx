@@ -935,14 +935,12 @@ function Certifications() {
   const certs = [
     {
       title: "Nutrition Science & Diet Planning",
-      started: "18 June 2026",
-      completed: "29 June 2026",
+      period: "June 2026",
       icon: Apple,
     },
     {
       title: "Exercise Science & Workout Planning",
-      started: "03 July 2026",
-      completed: "13 July 2026",
+      period: "July 2026",
       icon: Activity,
     },
   ];
