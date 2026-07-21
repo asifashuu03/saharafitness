@@ -553,9 +553,12 @@ function QuickInfo() {
       icon: Clock,
       title: "Opening Hours",
       body: (
-        <div className="space-y-1 text-xs">
-          <p><span className="text-gold">Mon – Fri:</span> 5–9 AM · 5–9:30 PM</p>
-          <p><span className="text-gold">Saturday:</span> 5 AM – 9 AM</p>
+        <div className="space-y-2 text-xs">
+          <div>
+            <p className="text-gold">Mon – Sat</p>
+            <p>5:00 AM – 9:00 AM</p>
+            <p>5:00 PM – 10:00 PM</p>
+          </div>
           <p><span className="text-gold">Sunday:</span> Closed</p>
         </div>
       ),
@@ -771,7 +774,7 @@ function PlanCard({ plan, withCardio }: { plan: Plan; withCardio: boolean }) {
           /total
         </span>
       </p>
-      <div className="mt-5 space-y-2.5 text-sm">
+      <div className="mt-5 flex-1 space-y-2.5 text-sm">
         <Row label="Admission" value={plan.admission} />
         <Row label="Monthly" value={`${plan.monthly}/mo`} />
         <Row label="Offer" value={plan.offer} multiline />
@@ -932,21 +935,19 @@ function Certifications() {
   const certs = [
     {
       title: "Nutrition Science & Diet Planning",
-      started: "18 June 2026",
-      completed: "29 June 2026",
+      period: "June 2026",
       icon: Apple,
     },
     {
       title: "Exercise Science & Workout Planning",
-      started: "03 July 2026",
-      completed: "13 July 2026",
+      period: "July 2026",
       icon: Activity,
     },
   ];
   return (
     <section id="certifications" className="relative px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <SectionTitle
-        eyebrow="Credentials"
+        eyebrow="Certified Excellence"
         title={
           <>
             Professional <span className="text-gold-gradient">Certifications</span>
@@ -964,7 +965,7 @@ function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass-strong group relative overflow-hidden rounded-3xl p-8 transition-all hover:-translate-y-1 hover:border-gold/50"
+              className="glass-strong group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 transition-all hover:-translate-y-1 hover:border-gold/50"
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
               <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-gold/10 blur-3xl transition-opacity group-hover:opacity-100" />
@@ -975,15 +976,13 @@ function Certifications() {
                 <Award className="h-8 w-8 text-gold/50" />
               </div>
               <h3 className="mt-6 text-2xl font-black uppercase leading-tight">{c.title}</h3>
-              <div className="mt-6 space-y-2 border-t border-gold/10 pt-4 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Started</span>
-                  <span className="font-semibold">{c.started}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Completed</span>
-                  <span className="font-semibold text-gold">{c.completed}</span>
-                </div>
+              <div className="mt-6 flex flex-1 flex-col items-center justify-center gap-1 border-t border-gold/10 pt-6 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-gold">
+                  Certified
+                </span>
+                <span className="text-lg font-black uppercase tracking-wide text-foreground">
+                  {c.period}
+                </span>
               </div>
             </motion.div>
           );
@@ -1088,8 +1087,8 @@ function Social() {
     {
       title: "Sahara Multi Fitness Unisex",
       handle: "@sahara_multi_fitness",
-      followers: "98.1K+",
-      posts: "836+",
+      followers: "100K+",
+      posts: "800+",
       href: IG_GYM,
       btn: "Follow Gym",
       badges: null as string[] | null,
@@ -1097,8 +1096,8 @@ function Social() {
     {
       title: "Suleman Mustafa",
       handle: "@sulemansalman",
-      followers: "39.7K+",
-      posts: "828+",
+      followers: "40K+",
+      posts: "800+",
       href: IG_COACH,
       btn: "Follow Coach",
       badges: [
