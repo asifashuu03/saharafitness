@@ -557,7 +557,7 @@ function QuickInfo() {
           <div>
             <p className="text-gold">Mon – Sat</p>
             <p>5:00 AM – 9:00 AM</p>
-            <p>5:00 PM – 10:00 PM</p>
+            <p>4:00 PM – 10:00 PM</p>
           </div>
           <p><span className="text-gold">Sunday:</span> Closed</p>
         </div>
